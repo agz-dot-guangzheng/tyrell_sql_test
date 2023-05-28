@@ -1,0 +1,4 @@
+# SQL OPTIMIZATION
+- Using MATCH () AGAINST () clause to replace the repeated LIKE ... OR ... block, with the pre-requisite that the columns can be indexed to do fulltext search
+- Remove certain columns that are not in use. In this scenario, I assumed that JobCategories.id, JobCategories.sort_order, JobCategories.deleted, JobTypes.id, JobTypes.sort_order and JobTypes.deleted can be removed since they are not being used in the query, unless they will be used in the code for in-code search & sorting purposes
+- Remove offset if offset = 0, but will have to keep the offset if query requested anything other than page 1. Specifically for this query, "OFFSET 0" can be removed.
