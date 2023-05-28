@@ -1,4 +1,6 @@
 # SQL OPTIMIZATION
 - Using MATCH () AGAINST () clause to replace the repeated LIKE ... OR ... block, with the pre-requisite that the columns can be indexed to do fulltext search
+- Using INNER JOIN over LEFT JOIN for certain tables, where these tables are definitely going to return a record for the JOIN clause (This is assuming the table was never truncated, dropped and rows not deleted using the DELETE command but have a flag like the columns selected in this query)
 - Remove certain columns that are not in use. In this scenario, I assumed that JobCategories.id, JobCategories.sort_order, JobCategories.deleted, JobTypes.id, JobTypes.sort_order and JobTypes.deleted can be removed since they are not being used in the query, unless they will be used in the code for in-code search & sorting purposes
 - Remove offset if offset = 0, but will have to keep the offset if query requested anything other than page 1. Specifically for this query, "OFFSET 0" can be removed.
+- If the efforts of optimizing the query doesn't work, perhaps trying to UNION multiple subqueies might have unexpected performance improvements

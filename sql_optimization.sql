@@ -44,40 +44,40 @@ SELECT
 FROM
     jobs Jobs
     LEFT JOIN jobs_personalities JobsPersonalities ON Jobs.id = (JobsPersonalities.job_id)
-    LEFT JOIN personalities Personalities ON (
+    INNER JOIN personalities Personalities ON (
         Personalities.id = (JobsPersonalities.personality_id)
         AND (Personalities.deleted) IS NULL
     )
     LEFT JOIN jobs_practical_skills JobsPracticalSkills ON Jobs.id = (JobsPracticalSkills.job_id)
-    LEFT JOIN practical_skills PracticalSkills ON (
+    INNER JOIN practical_skills PracticalSkills ON (
         PracticalSkills.id = (JobsPracticalSkills.practical_skill_id)
         AND (PracticalSkills.deleted) IS NULL
     )
     LEFT JOIN jobs_basic_abilities JobsBasicAbilities ON Jobs.id = (JobsBasicAbilities.job_id)
-    LEFT JOIN basic_abilities BasicAbilities ON (
+    INNER JOIN basic_abilities BasicAbilities ON (
         BasicAbilities.id = (JobsBasicAbilities.basic_ability_id)
         AND (BasicAbilities.deleted) IS NULL
     )
     LEFT JOIN jobs_tools JobsTools ON Jobs.id = (JobsTools.job_id)
-    LEFT JOIN affiliates Tools ON (
+    INNER JOIN affiliates Tools ON (
         Tools.type = 1
         AND Tools.id = (JobsTools.affiliate_id)
         AND (Tools.deleted) IS NULL
     )
     LEFT JOIN jobs_career_paths JobsCareerPaths ON Jobs.id = (JobsCareerPaths.job_id)
-    LEFT JOIN affiliates CareerPaths ON (
+    LEINNERFT JOIN affiliates CareerPaths ON (
         CareerPaths.type = 3
         AND CareerPaths.id = (JobsCareerPaths.affiliate_id)
         AND (CareerPaths.deleted) IS NULL
     )
     LEFT JOIN jobs_rec_qualifications JobsRecQualifications ON Jobs.id = (JobsRecQualifications.job_id)
-    LEFT JOIN affiliates RecQualifications ON (
+    INNER JOIN affiliates RecQualifications ON (
         RecQualifications.type = 2
         AND RecQualifications.id = (JobsRecQualifications.affiliate_id)
         AND (RecQualifications.deleted) IS NULL
     )
     LEFT JOIN jobs_req_qualifications JobsReqQualifications ON Jobs.id = (JobsReqQualifications.job_id)
-    LEFT JOIN affiliates ReqQualifications ON (
+    INNER JOIN affiliates ReqQualifications ON (
         ReqQualifications.type = 2
         AND ReqQualifications.id = (JobsReqQualifications.affiliate_id)
         AND (ReqQualifications.deleted) IS NULL
